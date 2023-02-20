@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "462174833061",
+    "project_id": "cs427-advanced-android-cloud",
+    "storage_bucket": "cs427-advanced-android-cloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462174833061:android:9c558978ff7002852dc04c",
+        "android_client_info": {
+          "package_name": "com.example.cs427_advanced_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462174833061-rq2j3k46ru1g1bkn6emomc6lh51svinj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtPkYfa2_F1ho4HmawSLAqHmX588OPI-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462174833061-rq2j3k46ru1g1bkn6emomc6lh51svinj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
