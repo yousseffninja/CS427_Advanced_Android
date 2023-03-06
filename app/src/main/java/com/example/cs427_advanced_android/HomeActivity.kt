@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cs427_advanced_android.network.QuotesApi
 import com.example.cs427_advanced_android.network.RetrofitHelper
 import com.example.task.MyAdapter
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -43,18 +41,19 @@ class HomeActivity : AppCompatActivity() {
 
         val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
         // launching a new coroutine
-        GlobalScope.launch {
-            val result = quotesApi.getQuotes()
-            for(x in result.body()?.results!!.indices) {
-                headingArr.add(result.body()?.results!![x].author)
-                priceArr.add(result.body()?.results!![x].length)
-                fromArr.add(result.body()?.results!![x].dateAdded)
-                toArr.add(result.body()?.results!![x].dateModified)
+        runBlocking<Unit> {
+            launch(Dispatchers.IO){
+                val result = quotesApi.getQuotes()
+                for(x in result.body()?.results!!.indices) {
+                    headingArr.add(result.body()?.results!![x].author)
+                    priceArr.add(result.body()?.results!![x].length)
+                    fromArr.add(result.body()?.results!![x].dateAdded)
+                    toArr.add(result.body()?.results!![x].dateModified)
+                }
+                Log.d("before", toArr.toString())
             }
-            Log.d("fff", toArr.toString())
-
         }
-
+        Log.d("after", toArr.toString())
         newRecycleview = findViewById(R.id.GG)
         newRecycleview.layoutManager = LinearLayoutManager(this@HomeActivity)
         newRecycleview.setHasFixedSize(true)

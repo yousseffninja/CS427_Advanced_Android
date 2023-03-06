@@ -12,9 +12,9 @@
         android:layout_height="80dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
+        android:src="@drawable/kfc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/kfc" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RestourantNameee"
@@ -36,7 +36,7 @@
         android:layout_height="1dp"
         android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RestourantCarddd"/>
+        app:layout_constraintTop_toBottomOf="@+id/RestourantCarddd" />
 
     <TextView
         android:id="@+id/Pricee"
@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/material_dynamic_neutral60"
         android:text="50 EGP"
+        android:textColor="@color/material_dynamic_neutral60"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/RestourantCarddd"
         app:layout_constraintTop_toBottomOf="@+id/RestourantNameee" />
@@ -54,11 +54,15 @@
         android:id="@+id/textView_from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="105dp"
         android:text="From"
-        android:textStyle="bold"
         android:textColor="@color/material_dynamic_neutral60"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="38dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Pricee"
+        app:layout_constraintTop_toBottomOf="@+id/RestourantNameee"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -68,9 +72,8 @@
         android:text="To"
         android:textColor="@color/material_dynamic_neutral60"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_from"
-        tools:layout_editor_absoluteY="38dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="37dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
