@@ -3,6 +3,7 @@ package com.example.cs427_advanced_android
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,6 +11,8 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -56,5 +59,15 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
+//    private fun performLoginViaAPI() {
+//        val quotesApi = CallingApi.getInstance().create(SkylineServiceApi::class.java)
+//
+//        GlobalScope.launch {
+//            val result = quotesApi.login()
+//            if (result != null)
+//                Log.d("ayush: ", result)
+//        }
+//    }
 
 }
