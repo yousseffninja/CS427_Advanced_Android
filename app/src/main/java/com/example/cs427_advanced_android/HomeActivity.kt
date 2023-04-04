@@ -1,14 +1,18 @@
 package com.example.cs427_advanced_android
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cs427_advanced_android.network.QuotesApi
 import com.example.cs427_advanced_android.network.RetrofitHelper
 import com.example.task.MyAdapter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 
 class HomeActivity : AppCompatActivity() {
@@ -39,6 +43,8 @@ class HomeActivity : AppCompatActivity() {
         fromArr = ArrayList<String>()
         toArr = ArrayList<String>()
 
+        val logout: Button = findViewById(R.id.button_logout)
+
         val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
         // launching a new coroutine
         runBlocking<Unit> {
@@ -60,6 +66,13 @@ class HomeActivity : AppCompatActivity() {
         newArrayList = arrayListOf<CarParser>()
 
         getUserData()
+
+        logout.setOnClickListener{
+            Firebase.auth.signOut()
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
+
 
     }
 
