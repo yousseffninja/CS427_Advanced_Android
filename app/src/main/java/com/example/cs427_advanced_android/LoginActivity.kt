@@ -51,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
 
         val RegisterNav: TextView = findViewById(R.id.RegisterNav)
 
+        val restPassword: TextView = findViewById(R.id.forgetpassword)
+
         val Login: Button = findViewById(R.id.buttonLogin)
 
         val sGoogle: Button = findViewById(R.id.SignGoogle)
@@ -61,6 +63,10 @@ class LoginActivity : AppCompatActivity() {
 
         RegisterNav.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        restPassword.setOnClickListener{
+            restPassword()
         }
 
         Notify.setOnClickListener {
@@ -176,6 +182,21 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
+    private fun restPassword() {
+        val email: EditText = findViewById(R.id.editTextTextEmailAddress)
+        mAuth.sendPasswordResetEmail(email.text.toString()).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(baseContext, "Reset Email sent Successful!! Check your Email.",
+                    Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(baseContext, "Sent email failed.",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
 //    private fun performLoginViaAPI() {
 //        val quotesApi = CallingApi.getInstance().create(SkylineServiceApi::class.java)
